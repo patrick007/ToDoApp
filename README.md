@@ -22,13 +22,13 @@ To Edit an existing item from the list:
 - Edit the Text field
 
 - Click on Save icon on the toolbar, you will be redirected to the main screen with the item updated
-- 
+
 - To return to the main page, click on the exit icon on the toolbar
 
 Notes:
 
 - The items will presist when leaving and reentering the ToDoApp
-- 
+
 - Data is stored and retreived using SQLite
 
 Demo:
