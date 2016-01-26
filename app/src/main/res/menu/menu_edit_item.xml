@@ -3,8 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.patcomp.todoapp.EditItemActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/actionSave"
+        android:orderInCategory="200"
+        android:title="Save"
+        android:icon="@drawable/ic_save_black_24dp"
+        app:showAsAction="ifRoom"
+        android:text="Right"
+        ></item>
+    <item
+        android:id="@+id/actionExit"
+        android:orderInCategory="200"
+        android:title="Exit"
+        android:icon="@drawable/ic_clear_black_24dp"
+        app:showAsAction="ifRoom"
+        android:text="Right"
+        ></item>
 </menu>

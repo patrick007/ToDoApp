@@ -3,7 +3,12 @@
     <string name="action_settings">Settings</string>
     <string name="add_item">Add a new item...</string>
     <string name="add">Add</string>
-    <string name="title_activity_edit_item">EditItemActivity</string>
-    <string name="edit_item">Edit Item Below:</string>
+    <string name="title_activity_edit_item">Your To Do List</string>
+    <string name="edit_item">Task Name</string>
     <string name="save">Save</string>
+    <string name="due_date">Due Date</string>
+    <string name="notes">Notes</string>
+    <string name="priority_level" />
+    <string name="level">Level</string>
+    <string name="status">Status</string>
 </resources>

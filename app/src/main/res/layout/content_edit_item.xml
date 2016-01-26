@@ -12,36 +12,144 @@
     tools:context="com.patcomp.todoapp.EditItemActivity"
     tools:showIn="@layout/activity_edit_item">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/edit_item"
-        android:id="@+id/textView"
+        android:id="@+id/tvName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="false"
+        android:textSize="16dp"
+        android:paddingTop="16dp"
+        android:textStyle="bold"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/eitEditText"
-        android:layout_below="@+id/textView"
+        android:id="@+id/eitEditName"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/tvName"
+        android:layout_marginLeft="62dp"
+        android:layout_marginStart="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:paddingTop="16dp"
+        android:textSize="16dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/due_date"
+        android:id="@+id/tvDueDate"
+        android:layout_below="@+id/eitEditName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:paddingTop="16dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etDueDate"
+        android:layout_alignBottom="@+id/tvDueDate"
+        android:layout_alignLeft="@+id/eitEditName"
+        android:layout_alignStart="@+id/eitEditName"
+        android:layout_alignRight="@+id/eitEditName"
+        android:layout_alignEnd="@+id/eitEditName"
+        android:textSize="16dp"
+        android:paddingTop="16dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/notes"
+        android:id="@+id/tvNotes"
+        android:layout_below="@+id/etDueDate"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:textSize="16dp"
+        android:paddingTop="16dp"
+        android:textStyle="bold"/>
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save"
-        android:id="@+id/bntSaveItem"
-        android:onClick="onSave"
-        android:layout_below="@+id/eitEditText"
+        android:id="@+id/etNotes"
+        android:layout_alignBottom="@+id/tvNotes"
+        android:layout_alignRight="@+id/etDueDate"
+        android:layout_alignEnd="@+id/etDueDate"
+        android:layout_alignLeft="@+id/etDueDate"
+        android:layout_alignStart="@+id/etDueDate"
+        android:textSize="16dp"
+        android:paddingTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/level"
+        android:id="@+id/tvLevel"
+        android:layout_below="@+id/etNotes"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@+id/eitEditName"
+        android:layout_toStartOf="@+id/eitEditName"
+        android:textSize="16dp"
+        android:paddingTop="16dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etLevel"
+        android:layout_alignBottom="@+id/tvLevel"
+        android:layout_alignRight="@+id/etDueDate"
+        android:layout_alignEnd="@+id/etDueDate"
+        android:layout_alignLeft="@+id/etDueDate"
+        android:layout_alignStart="@+id/etDueDate"
+        android:paddingTop="16dp"
+        android:textSize="16dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/status"
+        android:id="@+id/tvStatus"
+        android:layout_below="@+id/etLevel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@+id/eitEditName"
+        android:layout_toStartOf="@+id/eitEditName"
+        android:textSize="16dp"
+        android:paddingTop="16dp"
+        android:textStyle="bold"/>
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etStatus"
+        android:layout_alignBottom="@+id/tvStatus"
+        android:layout_alignRight="@+id/etDueDate"
+        android:layout_alignEnd="@+id/etDueDate"
+        android:layout_alignLeft="@+id/etDueDate"
+        android:layout_alignStart="@+id/etDueDate"
+        android:textSize="16dp"
+        android:paddingTop="16dp"/>
 
 </RelativeLayout>
