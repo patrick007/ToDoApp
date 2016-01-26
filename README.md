@@ -19,7 +19,7 @@ To Edit an existing item from the list:
 
 - click on the item you want to edit, you will be redirected to another screen
 
-- Edit the Text field
+- Edit the Text field: double click on the Due Date, Priority level and Status fields in order to update them     
 
 - Click on Save icon on the toolbar, you will be redirected to the main screen with the item updated
 
