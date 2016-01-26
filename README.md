@@ -32,5 +32,5 @@ Notes:
 Demo:
 
 
-![alt tag](https://github.com/patrick007/ToDoApp/blob/master/app/src/main/res/demo/demo.gif)
+![alt tag](https://github.com/patrick007/ToDoApp/blob/master/app/src/main/res/demo/demo2.gif)
 
