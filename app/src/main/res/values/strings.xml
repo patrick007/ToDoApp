@@ -7,8 +7,8 @@
     <string name="edit_item">Task Name</string>
     <string name="save">Save</string>
     <string name="due_date">Due Date</string>
-    <string name="notes">Notes</string>
+    <string name="notes">Task Notes</string>
     <string name="priority_level" />
-    <string name="level">Level</string>
+    <string name="level">Priority Level</string>
     <string name="status">Status</string>
 </resources>

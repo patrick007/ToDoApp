@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,144 +12,114 @@
     tools:context="com.patcomp.todoapp.EditItemActivity"
     tools:showIn="@layout/activity_edit_item">
 
-
-    <TextView
+    <TableRow
+        android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dip" >
+    <TextView
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/edit_item"
         android:id="@+id/tvName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="false"
-        android:textSize="16dp"
-        android:paddingTop="16dp"
+        android:textSize="14dp"
         android:textStyle="bold"/>
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/eitEditName"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/tvName"
-        android:layout_marginLeft="62dp"
-        android:layout_marginStart="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:paddingTop="16dp"
-        android:textSize="16dp"/>
-
-
-    <TextView
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/apptheme_edit_text_holo_light"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textSize="14dp" />
+    </TableRow>
+    <!-- just draw a red line -->
+    <View
+        android:layout_height="0.5dip"
+        android:background="#000000" />
+    <TableRow
+        android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dip" >
+    <TextView
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/due_date"
         android:id="@+id/tvDueDate"
-        android:layout_below="@+id/eitEditName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:paddingTop="16dp"/>
-
+        android:textSize="14dp"
+        android:textStyle="bold"/>
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/etDueDate"
-        android:layout_alignBottom="@+id/tvDueDate"
-        android:layout_alignLeft="@+id/eitEditName"
-        android:layout_alignStart="@+id/eitEditName"
-        android:layout_alignRight="@+id/eitEditName"
-        android:layout_alignEnd="@+id/eitEditName"
-        android:textSize="16dp"
-        android:paddingTop="16dp"
+        android:textSize="14dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/apptheme_edit_text_holo_light"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         />
-
-    <TextView
+    </TableRow>
+    <View
+        android:layout_height="0.5dip"
+        android:background="#000000" />
+    <TableRow
+        android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dip" >
+    <TextView
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/notes"
         android:id="@+id/tvNotes"
-        android:layout_below="@+id/etDueDate"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:textSize="16dp"
-        android:paddingTop="16dp"
+        android:textSize="14dp"
         android:textStyle="bold"/>
-
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/etNotes"
-        android:layout_alignBottom="@+id/tvNotes"
-        android:layout_alignRight="@+id/etDueDate"
-        android:layout_alignEnd="@+id/etDueDate"
-        android:layout_alignLeft="@+id/etDueDate"
-        android:layout_alignStart="@+id/etDueDate"
-        android:textSize="16dp"
-        android:paddingTop="16dp"/>
-
-    <TextView
+        android:textSize="14dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/apptheme_edit_text_holo_light"
+        android:layout_width="0dp"
+        android:layout_weight="1"/>
+    </TableRow>
+    <View
+        android:layout_height="0.5dip"
+        android:background="#000000" />
+    <TableRow
+        android:id="@+id/tableRow4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dip" >
+    <TextView
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/level"
         android:id="@+id/tvLevel"
-        android:layout_below="@+id/etNotes"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:layout_toLeftOf="@+id/eitEditName"
-        android:layout_toStartOf="@+id/eitEditName"
-        android:textSize="16dp"
-        android:paddingTop="16dp"
+        android:textSize="14dp"
         android:textStyle="bold"/>
-
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/etLevel"
-        android:layout_alignBottom="@+id/tvLevel"
-        android:layout_alignRight="@+id/etDueDate"
-        android:layout_alignEnd="@+id/etDueDate"
-        android:layout_alignLeft="@+id/etDueDate"
-        android:layout_alignStart="@+id/etDueDate"
-        android:paddingTop="16dp"
-        android:textSize="16dp"/>
-
-
-    <TextView
+        android:textSize="14dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/apptheme_edit_text_holo_light"
+        android:layout_width="0dp"
+        android:layout_weight="1"/>
+    </TableRow>
+    <View
+        android:layout_height="0.5dip"
+        android:background="#000000" />
+    <TableRow
+        android:id="@+id/tableRow5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dip" >
+    <TextView
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/status"
         android:id="@+id/tvStatus"
-        android:layout_below="@+id/etLevel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:layout_toLeftOf="@+id/eitEditName"
-        android:layout_toStartOf="@+id/eitEditName"
-        android:textSize="16dp"
-        android:paddingTop="16dp"
+        android:textSize="14dp"
         android:textStyle="bold"/>
-
-
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/etStatus"
-        android:layout_alignBottom="@+id/tvStatus"
-        android:layout_alignRight="@+id/etDueDate"
-        android:layout_alignEnd="@+id/etDueDate"
-        android:layout_alignLeft="@+id/etDueDate"
-        android:layout_alignStart="@+id/etDueDate"
-        android:textSize="16dp"
-        android:paddingTop="16dp"/>
-
-</RelativeLayout>
+        android:textSize="14dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/apptheme_edit_text_holo_light"
+        android:layout_width="0dp"
+        android:layout_weight="1"/>
+    </TableRow>
+</TableLayout>

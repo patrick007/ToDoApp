@@ -198,6 +198,8 @@ public class EditItemActivity extends AppCompatActivity {
             return true;
         }
         else if (id == R.id.actionExit) {
+            Intent data = new Intent();
+            setResult(RESULT_CANCELED, data);
             finish();
             return true;
         }

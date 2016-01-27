@@ -2,4 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.patcomp.todoapp.MainActivity">
+
+    <item
+        android:id="@+id/actionAdd"
+        android:orderInCategory="200"
+        android:title="Add"
+        android:icon="@drawable/ic_add_black_24dp"
+        app:showAsAction="ifRoom"
+        android:text="Right"
+        ></item>
 </menu>

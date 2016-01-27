@@ -15,6 +15,8 @@ import android.widget.ListView;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Item> itemsList;
     ItemAdapter aToDoAdapter;
     ListView lvItems;
-    EditText etEditText;
     ItemsDatabaseHelper databaseHelper;
 
     @Override
@@ -33,12 +34,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         databaseHelper = ItemsDatabaseHelper.getInstance(this);
-        populateArrayItems();
+        itemsList = databaseHelper.getAllItems();
+
+        sortItemList(itemsList);
+
+        aToDoAdapter = new ItemAdapter(this, itemsList);
         lvItems = (ListView) findViewById(R.id.lvItems);
         lvItems.setAdapter(aToDoAdapter);
-        etEditText = (EditText) findViewById(R.id.etEditText);
-
-
 
         lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -72,16 +74,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK && requestCode == EDIT_CODE) {
 
+        if (resultCode != RESULT_CANCELED) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             int position;
             Item item = new Item("");
             position = data.getExtras().getInt("itemPosition", 0);
-            String oldname = itemsList.get(position).Name;
 
             item.Name = data.getExtras().getString("newItemName");
-
             item.Id = data.getExtras().getInt("itemId", 0);
             try {
                 item.dueDate = dateFormat.parse(data.getExtras().getString("itemDueDate"));
@@ -92,15 +92,20 @@ public class MainActivity extends AppCompatActivity {
             item.level = data.getExtras().getString("itemLevel");
             item.Status = data.getExtras().getString("itemStatus");
 
-            itemsList.set(position, item);
-            aToDoAdapter.notifyDataSetChanged();
-            databaseHelper.updateItem(item, oldname);
+            if (resultCode == RESULT_OK && requestCode == EDIT_CODE) {
+                String oldname = itemsList.get(position).Name;
+                itemsList.set(position, item);
+                sortItemList(itemsList);
+                aToDoAdapter.notifyDataSetChanged();
+                databaseHelper.updateItem(item, oldname);
+            }
+            if (resultCode == RESULT_OK && requestCode == ADD_CODE) {
+                itemsList.add(item);
+                sortItemList(itemsList);
+                aToDoAdapter.notifyDataSetChanged();
+                databaseHelper.addItem(item);
+            }
         }
-    }
-
-    public void populateArrayItems() {
-        itemsList = databaseHelper.getAllItems();
-        aToDoAdapter = new ItemAdapter(this, itemsList);
     }
 
 
@@ -119,25 +124,44 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        /*
+
         if (id == R.id.actionAdd) {
             Intent i = new Intent(MainActivity.this, EditItemActivity.class);
+            i.putExtra("currentItemName", "");
+            i.putExtra("itemPosition", -1);
+            i.putExtra("itemId", -1);
+            i.putExtra("itemDueDate", "");
+            i.putExtra("itemNotes", "");
+            i.putExtra("itemLevel", "");
+            i.putExtra("itemStatus", "");
             startActivityForResult(i, ADD_CODE);
             return true;
         }
-        */
+
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void onAddItem(View view) {
-        String NewitemName = etEditText.getText().toString();
-        Item item = new Item(NewitemName);
-        itemsList.add(item);
-        aToDoAdapter.notifyDataSetChanged();
-        etEditText.setText("");
 
-        databaseHelper.addItem(item);
+
+    public void sortItemList(ArrayList<Item> itmlst) {
+        Collections.sort(itemsList, new Comparator<Item>() {
+            @Override
+            public int compare(Item lhs, Item rhs) {
+                int lhsInt;
+                int rhsInt;
+
+                if (lhs.level.equals("LOW")) lhsInt = 0;
+                else if (lhs.level.equals("MEDIUM")) lhsInt = 1;
+                else lhsInt = 2;
+
+                if (rhs.level.equals("LOW")) rhsInt = 0;
+                else if (rhs.level.equals("MEDIUM")) rhsInt = 1;
+                else rhsInt = 2;
+
+                return rhsInt - lhsInt ;
+            }
+        });
     }
 
 

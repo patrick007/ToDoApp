@@ -1,6 +1,7 @@
 package com.patcomp.todoapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,14 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         // Populate the data into the template view using the data object
         tvName.setText(item.Name);
         tvLevel.setText(item.level);
+
+        if (item.level.equals("LOW"))
+            tvLevel.setTextColor(Color.BLUE);
+        else if (item.level.equals("MEDIUM"))
+            tvLevel.setTextColor(Color.GREEN);
+        else if (item.level.equals("HIGH"))
+        tvLevel.setTextColor(Color.RED);
+
         // Return the completed view to render on screen
         return convertView;
     }
